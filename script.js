@@ -22,6 +22,7 @@ const goBack = document.getElementById("go-back");
 const clearScores = document.getElementById("clear-scores");
 const startQuizButton = document.getElementById("start-quiz");
 const viewScoresButton = document.getElementById("view-scores");
+const homeButton = document.getElementById("home");
 
 let currentQuestion = 0;
 let score = 0;
@@ -33,6 +34,8 @@ function startQuiz() {
     quiz.style.display = "block";
     startTimer();
     showQuestion();
+    startQuizButton.style.display = "none"; // Hide the Start Quiz button
+    viewScoresButton.style.display = "none"; // Hide the View High Scores button
 }
 
 // Function to display a question
@@ -128,6 +131,19 @@ goBack.addEventListener("click", () => {
     restartQuiz();
 });
 
+// Event listener for clearing high scores
+clearScores.addEventListener("click", () => {
+    clearHighScores();
+    highScoreList.innerHTML = "";
+});
+
+// Event listener for the Home button
+homeButton.addEventListener("click", () => {
+    highScores.style.display = "none";
+    startQuizButton.style.display = "block"; // Show the Start Quiz button
+    viewScoresButton.style.display = "block"; // Show the View High Scores button
+});
+
 // Function to restart the quiz
 function restartQuiz() {
     currentQuestion = 0;
@@ -139,23 +155,8 @@ function restartQuiz() {
     quiz.style.display = "none";
     gameOver.style.display = "none";
     startQuizButton.style.display = "block";
-
-    // Show the main quiz screen
+    viewScoresButton.style.display = "block";
     quizContainer.style.display = "block";
-    startQuiz();
-}
-
-
-
-// Event listener for clearing high scores
-clearScores.addEventListener("click", () => {
-    clearHighScores();
-    highScoreList.innerHTML = "";
-});
-
-// Function to clear high scores
-function clearHighScores() {
-    localStorage.removeItem("highScores");
 }
 
 // Event listener for starting the quiz
@@ -164,9 +165,6 @@ startQuizButton.addEventListener("click", startQuiz);
 // Event listener for viewing high scores
 viewScoresButton.addEventListener("click", () => {
     displayHighScores();
+    startQuizButton.style.display = "none"; // Hide the Start Quiz button
+    viewScoresButton.style.display = "none"; // Hide the View High Scores button
 });
-
-// Initial start
-startQuizButton.style.display = "block";
-viewScoresButton.style.display = "block";
-

@@ -37,6 +37,15 @@ button:hover {
     background-color: #ff0000;
 }
 
+/* Styling for the Home button */
+button#home {
+    background-color: #4CAF50;
+}
+
+button#home:hover {
+    background-color: #45a049;
+}
+
 #high-scores ul {
     list-style: none;
     padding: 0;
