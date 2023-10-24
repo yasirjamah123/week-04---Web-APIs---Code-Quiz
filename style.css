@@ -1,0 +1,48 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Press Start 2P", sans-serif;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#quiz-container {
+    display: none;
+}
+
+#game-over {
+    display: none;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #ff4b4b;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    font-family: "Press Start 2P", sans-serif;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #ff0000;
+}
+
+#high-scores ul {
+    list-style: none;
+    padding: 0;
+}
+
+#high-scores li {
+    margin: 10px;
+    font-size: 24px;
+}
